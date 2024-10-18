@@ -47,4 +47,5 @@ async function callApi() {
 cron.schedule('* * * * * *', () => { 
     callApi()
 });
+app.listen(process.env.PORT||5000,()=>console.log("Port connected"))
 
