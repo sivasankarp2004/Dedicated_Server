@@ -1,10 +1,9 @@
 name: Run Node Cron Job
 
-# This block defines the schedule. The cron expression is for every 5 minutes.
 on:
   schedule:
-    - cron: "*/5 * * * *"  # Change this according to your required schedule
-  workflow_dispatch:  # This allows manual triggers for testing
+    - cron: "*/5 * * * *"  # Adjust this to your desired schedule
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   cronjob:
@@ -25,6 +24,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Run your Node.js script
+      # Step 4: Run your Node.js script (update here to index.js)
       - name: Run cron task
-        run: node cron-task.js  # Replace with the path to your script
+        run: node index.js  # Executes index.js
