@@ -1,0 +1,30 @@
+name: Run Node Cron Job
+
+# This block defines the schedule. The cron expression is for every 5 minutes.
+on:
+  schedule:
+    - cron: "*/5 * * * *"  # Change this according to your required schedule
+  workflow_dispatch:  # This allows manual triggers for testing
+
+jobs:
+  cronjob:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the code from your repository
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Node.js environment
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'  # Specify the Node.js version you need
+
+      # Step 3: Install dependencies (if any)
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run your Node.js script
+      - name: Run cron task
+        run: node cron-task.js  # Replace with the path to your script
