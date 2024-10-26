@@ -23,5 +23,5 @@ jobs:
 
     - name: Run Cron Job
       run: |
-        node your-cron-script.js &  # Replace with your script file
+        node index.js &  # Replace with your script file
         sleep 300  # Keep the job running for 5 minutes (or however long needed)
