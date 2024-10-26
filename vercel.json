@@ -11,12 +11,12 @@
     },
     "routes": [
       {
-        "src": "/api",
-        "dest": "/api/index.js"
+        "src": "/",
+        "dest": "/index.js"
       },
       {
-        "src": "/api/scheduled",
-        "dest": "/api/scheduled.js"
+        "src": "/scheduled",
+        "dest": "/scheduled.js"
       }
     ]
   }
