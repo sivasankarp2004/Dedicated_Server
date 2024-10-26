@@ -26,7 +26,7 @@ async function callApi() {
     const seconds = istDate.getUTCSeconds().toString().padStart(2, '0');
     
 
-    if ((hours == 9 && minutes == 0) || (hours == 13 && minutes == 0) || (hours == 16 && minutes == 0)) {
+    if ((hours == 9) || (hours == 13) || (hours == 16)) {
         let response1 = await Smodel.find({});
         for (let i = 0; i < response1.length; i++) {
             response1[i].status = "on";
@@ -35,7 +35,7 @@ async function callApi() {
         }
     }
 
-    if ((hours == 9 && minutes == 50) || (hours == 14 && minutes == 0) || (hours == 20 && minutes == 6)) {
+    if ((hours == 9) || (hours == 14) || (hours == 20 )) {
         let response2 = await Smodel.find({});
         for (let i = 0; i < response2.length; i++) {
             response2[i].status = "off";
@@ -44,7 +44,7 @@ async function callApi() {
         }
     }
 }
-cron.schedule('* * * * * *', () => { 
+cron.schedule('* * * *', () => { 
     callApi()
 });
 app.listen(process.env.PORT||5000,()=>console.log("Port connected"))
