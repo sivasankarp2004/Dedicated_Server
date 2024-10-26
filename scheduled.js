@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { Smodel } = require("../sModel");
+const { Smodel } = require("./sModel");
 
 const mongoURI = 'mongodb+srv://kaschostel4:sivasankar@kaschostelcluster0.nopfs.mongodb.net/studentform';
 
