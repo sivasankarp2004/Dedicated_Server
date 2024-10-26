@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const { Smodel } = require("../sModel");
+const { Smodel } = require("./sModel");
 
 const mongoURI = 'mongodb+srv://kaschostel4:sivasankar@kaschostelcluster0.nopfs.mongodb.net/studentform';
 
