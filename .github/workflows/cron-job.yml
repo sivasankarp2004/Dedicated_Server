@@ -1,29 +1,27 @@
-name: Run Node Cron Job
+name: Deploy Node.js App with Cron
 
 on:
-  schedule:
-    - cron: "*/5 * * * *"  # Adjust this to your desired schedule
-  workflow_dispatch:  # Allows manual triggering of the workflow
+  push:
+    branches:
+      - main
 
 jobs:
-  cronjob:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code from your repository
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      # Step 2: Set up Node.js environment
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'  # Specify the Node.js version you need
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'  # Use your preferred Node.js version
 
-      # Step 3: Install dependencies (if any)
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      # Step 4: Run your Node.js script (update here to index.js)
-      - name: Run cron task
-        run: node index.js  # Executes index.js
+    - name: Run Cron Job
+      run: |
+        node your-cron-script.js &  # Replace with your script file
+        sleep 300  # Keep the job running for 5 minutes (or however long needed)
